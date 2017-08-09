@@ -44,6 +44,12 @@ main()
 	inserePosicaoCerta(6);
 	printf("Tamanho %d: \n",tamanho());
 	imprime();
+	removeInicio();
+	removeInicio();
+	imprime();
+	removeValor(4);
+	imprime();
+
 
 
 
@@ -86,6 +92,17 @@ void ordenarLista()
 
 }
 
+void removeInicio(){
+ celula *p,*temp;
+ p=inicio;
+
+ temp=p;
+
+ inicio=p->prox;
+ free(temp);
+
+}
+
 int posicao(int valor){
  celula *p;
  p=inicio;
@@ -98,7 +115,26 @@ int posicao(int valor){
  }
 
 
- return i-1;
+ return i;
+
+
+}
+
+void removeValor(int valor){
+celula *p,*temp1,*temp2;
+p=inicio;
+int i;
+int pos=posicao(valor);
+for (i=1;i<pos;i++){
+        p=p->prox;
+    }
+//temp1=p;
+temp1=p->prox;
+temp2=temp1->prox;
+p->prox=temp2;
+free(temp1);
+
+
 
 
 }
@@ -117,7 +153,7 @@ void inserePosicaoCerta(int valor){
 		inicio=novo1;
 	}
 
-pos=posicao(valor);
+pos=posicao(valor)-1;
 
     for (i=1;i<pos;i++){
         p=p->prox;
@@ -226,4 +262,5 @@ void imprime(void)
 	{
 			printf("OS VALORES SAO: %d\n",p->conteudo);
 	}
+	printf("****************\n");
 }
