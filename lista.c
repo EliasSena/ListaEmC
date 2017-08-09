@@ -44,11 +44,12 @@ main()
 	inserePosicaoCerta(6);
 	printf("Tamanho %d: \n",tamanho());
 	imprime();
-	removeInicio();
-	removeInicio();
+	//removeInicio();
+	//removeInicio();
 	imprime();
-	removeValor(4);
-	imprime();
+	//removeValor(4);
+	//imprime();
+	printf("Posicao: %d: ",posicao(4));
 
 
 
